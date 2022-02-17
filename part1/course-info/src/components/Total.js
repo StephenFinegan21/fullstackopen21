@@ -1,9 +1,12 @@
 import React from 'react'
 
-const Total = ({ total }) => {
+const Total = ({ parts }) => {
+ 
+ 
+  
   return (
     <div>
-        <p>{total}</p>
+       {parts[0].exercises + parts[1].exercises + parts[2].exercises }
     </div>
   )
 }
