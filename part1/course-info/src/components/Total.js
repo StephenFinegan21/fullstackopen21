@@ -2,11 +2,17 @@ import React from 'react'
 
 const Total = ({ parts }) => {
  
- 
+
+
+
   
   return (
     <div>
-       {parts[0].exercises + parts[1].exercises + parts[2].exercises }
+       {
+       parts
+       .map(part => part.exercises)               //Map through parts and save exercises into an array
+       .reduce((total, amount) => total + amount) //Sum the exercises 
+       }
     </div>
   )
 }
