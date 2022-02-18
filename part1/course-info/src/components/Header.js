@@ -1,6 +1,7 @@
 import React from 'react'
 
-export const Header = ( {course} ) => {
+const Header = ( {course} ) => {
+  //console.log(course)
   return (
     <>
         <h1>{course}</h1>
@@ -9,3 +10,5 @@ export const Header = ( {course} ) => {
     </>
   )
 }
+
+export default Header

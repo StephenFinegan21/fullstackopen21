@@ -1,8 +1,7 @@
 import ReactDOM from 'react-dom'
 
-import { Header } from './components/Header'
-import Total from './components/Total'
-import Content from './components/Content'
+import Course from './components/Course'
+
 
 const App = () => {
   const course = {
@@ -23,12 +22,10 @@ const App = () => {
     ]
   }
 
+  console.log(course.name, 'is in the app.js')
+
   return (
-    <div>
-      <Header course={course.name} />
-      <Content parts={course.parts} />
-      <Total parts={course.parts} />
-    </div>
+  <Course course={course} />
   )
 }
 
