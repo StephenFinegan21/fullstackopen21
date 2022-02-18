@@ -55,24 +55,13 @@ const App = () => {
   }
 
   const getMostVotes = () => {
+      const voteValues = (anecdotes.map(item => item.votes)) //Get the array of votes
+      const max = Math.max(...voteValues)                    //Get the highest count of votes
+      anecdotes.find(highest => highest.votes === max)       //Find the object item with the highest votes
     
+     setHighestVoted(anecdotes.find(highest => highest.votes === max).quote)  //Set as new highest
 
-      const voteValues = (anecdotes.map(item => item.votes))
-      const max = Math.max(...voteValues)
-
-      anecdotes.find(highest => highest.votes === max)
-      console.log(anecdotes.find(highest => highest.votes === max).quote)
-      
-
-     setHighestVoted(anecdotes.find(highest => highest.votes === max).quote)  
-
-      
     
-  // console.log(highest)
-   
-  }
-  //getMostVotes()
-//console.log(getMostVotes())
   return (
     <div>
      
