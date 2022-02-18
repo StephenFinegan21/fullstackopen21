@@ -2,30 +2,42 @@ import { useState } from 'react'
 
 const App = () => {
   const [persons, setPersons] = useState([
-    { name: 'Arto Hellas' }
+    { name: 'Arto Hellas',
+      number: '00223567' }
   ]) 
   const [newName, setNewName] = useState('')
+  const [newNumber, setNewNumber] = useState('')
 
   const addPerson = (event) =>{
     event.preventDefault()
 
   //Prevent duplicates
-   if((persons.map(person => person.name.toLowerCase).includes(newName.toLowerCase))){
+  
+   if((persons.map(person => person.name.toLowerCase()).includes(newName.toLowerCase()))){
      alert(`${newName} already exists in contacts`)
      return
    }
+   
     
+   
     setPersons([
       ...persons,
-      {name:newName}
+      {
+        name:newName,
+        number:newNumber
+      }
     ])
 
     setNewName('')
+    setNewNumber('')
   }
 
   const handleInput = (event) =>{
     setNewName(event.target.value)
-   
+  }
+
+  const handleNewNumber = (event) =>{
+    setNewNumber(event.target.value)
   }
 
   
@@ -35,14 +47,22 @@ const App = () => {
       <h2>Phonebook</h2>
       <form onSubmit = {addPerson}>
         <div>
-          name: <input value={newName} onChange={handleInput} placeholder='add a new Contact' />
+          name: <input required value={newName} onChange={handleInput} placeholder='add a new Contact' />
+          number: <input required value={newNumber} onChange={handleNewNumber} placeholder='add a new Number' />
         </div>
         <div>
           <button type="submit" >add</button>
         </div>
       </form>
       <h2>Numbers</h2>
-      {persons.map(person => <li>{person.name}</li>)}
+      {persons.map(person => 
+        <li key ={person.name}>
+          {person.name} - {person.number}
+        </li>
+        
+        
+        
+        )}
     </div>
   )
 }
