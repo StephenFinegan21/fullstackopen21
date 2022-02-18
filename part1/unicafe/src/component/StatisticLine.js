@@ -4,11 +4,12 @@ const StatisticLine = ({ type, value}) => {
   return (
     <>
     <table>
-      <tr>
-        <td>{type}</td>
-        <td>{value}</td>
-      </tr>
-
+      <tbody>
+        <tr>
+          <td>{type}</td>
+          <td>{value}</td>
+        </tr>
+      </tbody>
     </table>
     </>
   )
