@@ -1,8 +1,11 @@
-import React from 'react'
+import {React, useState, useEffect} from 'react'
 
-const DisplayCountries = ({ data, filter }) => {
+const DisplayCountries = ({ data, userSelection }) => {
 
-    console.log(data)
+   // console.log(data)
+   //console.log(searchTerm)
+ 
+   
    
 
     if(data.length > 10 || data.length === 0){
@@ -41,6 +44,7 @@ const DisplayCountries = ({ data, filter }) => {
             {data.map(country => 
                 <li key={country.name.common}>
                     {country.name.common}
+                    <button onClick={() => userSelection(country.name.common)}>Show</button>
                 </li>)}
         </div>
         )

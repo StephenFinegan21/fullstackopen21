@@ -35,13 +35,18 @@ function App() {
     
   }
 
+  const filterByUserSelection = (selection) => {
+    setSearchTerm(selection)
+    
+  }
+
   
   
   //console.log(countries)
   return (
     <div className="App">
         <Search  value={searchTerm} onChange={filterCountries} />
-        <DisplayCountries data = {countries}  />
+        <DisplayCountries data = {countries} userSelection={filterByUserSelection}  />
     </div>
   );
 }
