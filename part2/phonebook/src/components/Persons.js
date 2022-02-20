@@ -1,14 +1,6 @@
 import React from 'react'
 
 const Persons = ( {list , filter}) => {
-
-    console.log(
-        
-        
-    
-    
-    
-    )
    
   return (
     <div>
