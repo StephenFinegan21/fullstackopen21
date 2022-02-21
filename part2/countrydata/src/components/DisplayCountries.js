@@ -1,20 +1,19 @@
-import {React, useState, useEffect} from 'react'
+import {React} from 'react'
+
+import Weather from './Weather';
+
 
 const DisplayCountries = ({ data, userSelection }) => {
 
-   // console.log(data)
-   //console.log(searchTerm)
- 
-   
-   
-
-    if(data.length > 10 || data.length === 0){
+   // More than 10 Countries Returned
+   if(data.length > 10 || data.length === 0){
         return (
            <>
             <p>Too many Results, please change filter or enter a more specific value</p>
            </>
           )
     }
+    // 1 result - (Detailed info)
     else if(data.length === 1){
         return(
             <div>
@@ -29,13 +28,18 @@ const DisplayCountries = ({ data, userSelection }) => {
                              <li key={lan}>
                                  {lan}
                             </li> )}
+                    <img src={country.flags.png} alt ={country.name.common} style={{padding:'20px'}}/>
                     
-                    <img src={country.flags.png} alt={`flag of ${country.name.common}`}  />
-
+                 
                 </div>)}
+                    <Weather 
+                        country = {data[0].name.common}
+                        city = {data[0].capital}
+                   />
+                       
+                
         </div>
         )
-
 
     }
     else{
